@@ -1,0 +1,13 @@
+name: immigration_legislation
+title: immigration_legislation
+username:
+account: apoorvashivaram
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3811374
+bundleId: 4361620
+url: https://apoorvashivaram.shinyapps.io/immigration_legislation/
+when: 1616038433.70794
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: data_cleaning.R|map_plots.R|Shivaram_Apoorva_Data_Memo.Rmd|Shivaram_Apoorva_Final_Data_Memo.html|Shivaram_Apoorva_Final_Data_Memo.Rmd|app_screenshots/about_page.png|app_screenshots/comparisons_page.png|data_memos/Shivaram_Apoorva_Data_Memo.html|data_memos/Shivaram_Apoorva_Data_Memo.pdf

@@ -1,0 +1,71 @@
+---
+title: "Data Visualization: Final Data Memo"
+subtitle: "STAT 302"
+author: "Apoorva Shivaram"
+date: "3/17/2021"
+output: 
+  html_document:
+    code_folding: hide
+    toc: true
+    toc_float: true
+    highlight: "tango"
+---
+
+### Dataset
+
+The [immigration legislation dataset](%5Bhttps://github.com/NUstat/immigration_legislation) dataset was developed to catalog and classify all immigration-related legislation introduced in the 50 states of the United States of America since 1990. There are 12,660 bills in these data that are coded for various features of the bills. The variables I will be focusing on for this project are:
+
+**General information**
+
+-   `state`: US state that considered this bill
+-   `enacted`: Was the bill ultimately enacted?
+
+**Who does the bill target?**
+
+-   `targets_undocumented`: Undocumented
+-   `targets_undocumented_children`: Undocumented children
+-   `targets_legal_permanent_residents`: Legal permanent residents
+-   `targets_refugees_asylees`: Refugees or asylees
+
+**Additional variables created:**
+
+-   `decade`: created by adding levels to `year_introduced`
+-   `region`: created by adding levels to `state`
+
+<div>
+
+> Citation: Filindra, Alexandra and Shanna Pearson-Merkowitz, (2020) Database of State-Level Immigration Legislation, 1990-2015. Chicago: University of Illinois
+
+</div>
+
+### Format & App Layout
+
+I created a [shiny app](https://apoorvashivaram.shinyapps.io/immigration_legislation/) to visualize the data from the immigration legislation dataset. The core concepts of each visualization will be described in turn below. I designed a three-tab layout.
+
+I.  The first tab consisted of three similar plots of percentage of bills enacted/introduced across the contiguous 48 states in the US.
+II. The second tab consisted of a simple bar plot that visualized data from user provided input.
+III. The third tab is an 'about' tab that provides the user with information about the project, dataset, and the author.
+
+### Core Concepts of Visualizations
+
+Within the first tab titled 'Legislation US Maps', there are three maps that visualize three different variables. Accompanying each map is a drop-down box where the user can select one option that ranges from 'all US states' to any of the individual state within the contiguous 48. The counts of the legislation passed and bills created, along with the percentage of bills passed data related to this user provided input (state) is indicated in the table below. This element is reactive, so the user can move across multiple states and examine its corresponding table.
+
+The first map under 'Enacted Legislation' visualizes the percentage of immigration bills enacted across the US. The different colors represent 4 discrete bins of percentage of bills enacted when introduced in that particular state. Darker colors represent lower percentages of bills enacted after being introduced in that state, while lighter colors (particularly North Dakota and Idaho) have the highest percentages of bills being enacted.
+
+![](app_screenshots/overall_legislation_page.png)
+
+Similar to the first map, the second map under 'Targets Undocumented Individuals' depicts the percentage of immigration bills introduced by a particular state that targeted undocumented individuals. It is once again binned into 4 groups with the darker colors representing the lowest percentages of bills targeting undocumented individuals and the lighter colors indicating highest percentages (60-80% of bills). Ohio, Kansas, Tennessee, Alabama, and Mississippi have between 60-80% of bills introduced in these states that target undocumented individuals.
+
+![](app_screenshots/undoc_indiv_page.png)
+
+Similar to the second map, the third map under 'Targets Undocumented *Children*' depicts the percentage of immigration bills introduced by a particular state that targeted undocumented *children*. It is once again binned into 3 groups with the darker colors representing the lowest percentages of bills targeting undocumented individuals and the lighter colors indicating highest percentages (10-15% of bills). Pennsylvania, Arkansas, Florida, and Alabama have between 10-15% of bills introduced in these states that target undocumented *children*.
+
+![](app_screenshots/undoc_children_page.png)
+
+The second tab titled 'Comparisons', lets the user pick a variable to draw a simple bar chart, and a targeted population to categorize the bar chart by. This chart was designed to depict the number of bills created either in a particular decade (1990s, 2000s, 2010s), a particular region (Midwest, Northeast, West, South), or enacted (yes or no) for bills that were designed to target either undocumented individuals, undocumented children, legal permanent residents, or refugees and asylees. Overall, this bar chart tells us to which category the bills seem to be frequently directed, whether they have had success (were they enacted), trends across time and region where the bill was introduced.
+
+![](app_screenshots/comparisons_page.png)
+
+Finally, the third tab 'About' provides a brief overview of the Shiny project, the dataset, and the author of the project.
+
+![](app_screenshots/about_page.png){width="2558"}

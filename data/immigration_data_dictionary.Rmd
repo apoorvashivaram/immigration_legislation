@@ -1,0 +1,69 @@
+---
+title: "Immigration Legislation Data Dictionary"
+output: html_document
+---
+
+This document outlines some of the data on proposed and/or enacted legislation related to immigration. This dataset was developed to catalogue and classify all immigration-related legislation introduced in the 50 states since 1990. Over the past 30 years, states have become increasingly involved in immigration regulation as a result of federal inaction in some domains, and the need to implement referral law in other.
+
+State-level immigration regulation spans across a variety of policy domains as states need to determine when and under what conditions should various categories of non-citizens be allowed to attend schools, get driving licenses and state identification cards, be licensed to carry weapons, receive social services, be provided language assistance, or even whether they are allowed to be on organ transplant lists. A substantial number of legislation in recent years is focused on law enforcement and the conditions under which state and local police officers should enforce federal immigration law.
+
+The dataset classifies legislation based on the domain that it seeks to regulate, the category of noncitizens that are the target of the proposed law, and whether the law seeks to expand or restrict rights/privileges. This gives us a snapshot of how the country, various regions, and individual states have dealt with immigration over time and across domains.
+
+The data are stored in the file `data/immigration_legislation_data.RDS` in this repository. Each row in this file is a piece of legislation that was propsed in a given state. There are 12,660 bills in the data For each piece of legislation, the data includes the following 39 features:
+
+**General information**
+
+-   `ID` (previously `V1`): Unique ID for each bill
+-   `state` (previously `Q1_4`): US state that considered this bill
+-   `year_introduced` (previously `Q2_6`): Year the bill was introduced
+-   `bill_name` (previously `Q2_1`): Bill name and number
+-   `bill_type` (previously `Q2_4`): What type of bill is it (e.g., statute, resolution, etc.)?
+-   `final_status` (previously `Q2_7`): What is the final status of the bill?
+-   `enacted`: Was the bill ultimately enacted?
+
+**Who does the bill target?**
+
+-   `targets_undocumented` (previously `Q4_1_2`): Undocumented
+-   `targets_undocumented_children` (previously `Q4_1_3`): Undocumented children
+-   `targets_legal_permanent_residents` (previously `Q4_1_4`): Legal permanent residents
+-   `targets_refugees_asylees` (previously `Q4_1_5`): Refugees or asylees
+-   `employment_bill_target` (previously `Q8_1`): If the bill regulates employment/labor, who is the target of the bill?
+
+**What sector does the bill engage?**
+
+-   `engages_firearms_license` (previously `Q5_1_1`): Fire-arms licensing
+-   `engages_property_ownership_rights` (previously `Q5_1_2`): Property ownership rights
+-   `engages_foreign_companies` (previously `Q5_1_3`): Foreign corporations
+-   `engages_womens_issues_domestic_violence` (previously `Q5_1_4`): Women's issues/domestic violence
+-   `engages_employment` (previously `Q5_1_5`): Employment or labor
+-   `engages_law_enforcement` (previously `Q5_1_6`): Law enforcement (police practices, criminal law)
+-   `engages_social_services` (previously `Q5_1_7`): Social services and benefits (e.g., public assistance, TANF, food stamps
+-   `engages_healthcare_benefits` (previously `Q5_1_8`): Healthcare benefits
+-   `engages_education` (previously `Q5_1_9`): Education
+-   `engages_id_documents` (previously `Q5_1_10`): Identification documents/verification of legal residence
+-   `engages_drivers_license_id` (previously `Q5_1_11`): Drivers' licenses/state & local ID issuance
+-   `engages_human_trafficking` (previously `Q5_1_12`): Human trafficking
+-   `engages_housing` (previously `Q5_1_13`): Housing
+-   `engages_integration` (previously `Q5_1_14`): Integration (e.g., language services, citizenship programs, celebration of immigrant groups)
+-   `engages_immigration_services` (previously `Q5_1_15`): Immigration services (e.g., attorneys, notaries, immigration service providers)
+-   `engages_other` (previously `Q5_1_17`): Other (e.g., banking, alcohol, taxes, response to AZ law)
+-   `engages_taskforce_study_commission` (previously `Q5_1_18`): Task force/study/committee/team/commission
+-   `engages_family_law` (previously `Q5_1_20`): Family law (e.g., marriage, divorce, adoption)
+-   `engages_civil_law_jury_awards` (previously `Q5_1_23`): Civil law/jury awards
+-   `engages_voting_elections` (previously `Q5_1_43`): Voting/elections/running for office
+-   `engages_lottery_awards` (previously `Q5_1_47`): Lottery awards (3/2017) ("903")
+-   `engages_vital_records` (previously `Q5_1_49`): Vital records (3/2017) ("906")
+
+**Total/neutral/positive/negative scores**
+
+-   `totalsubstantive`
+-   `neu_index`: Neutrality index, scores how "neutral" a bill is toward immigrants
+-   `pos_index`: Positivity index, scores how "positive" a bill is toward immigrants
+-   `neg_index`: Negativity index, scores how "negative" a bill is toward immigrants
+-   `net_pos_neg_index`: Net positive - negative score (`pos_index - neg_index`)
+
+## Notes
+
+Old column names from the original raw dataset are noted in this list (e.g., the `ID` column was previously called `V1`).
+
+Note that more detailed descriptions can be found in the questionnaire (`immigration_database_questionnaire.docx`). Column names can be linked to the questionnaire by their former names. For instance, `targets_undocumented` was collected from option 2 from question 4.1 (`Q4_1_2`) in the questionnaire (see page 15 of the questionnaire).
